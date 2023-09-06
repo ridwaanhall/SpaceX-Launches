@@ -1,17 +1,25 @@
 import requests
 
 
+class ReadUrl:
+
+  def read_json(self, response):
+    if response.status_code == 200:
+      return response.json()
+    else:
+      return []
+
+
 class SpaceXLaunches:
 
   def __init__(self):
     self.url = "https://api.spacexdata.com/v4/launches"
 
-  def fetch_spacex_launches(self):
+  def spacex_launches_web(self):
+    reader = ReadUrl()
     response = requests.get(self.url)
-    if response.status_code == 200:
-      return response.json()
-    else:
-      return []
+    launches = reader.read_json(response)
+    return launches
 
   def categorize_launches(self, launches):
     successful = list(

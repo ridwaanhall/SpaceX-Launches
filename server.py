@@ -8,8 +8,15 @@ app = Flask(__name__)
 @app.route("/")
 def index():
   spacex = SpaceXLaunches()
-  launches = spacex.categorize_launches(spacex.fetch_spacex_launches())
+  launches = spacex.categorize_launches(spacex.spacex_launches_web())
   return render_template("spacex.html", launches=launches)
+
+
+#@app.route("/v5")
+#def api_all():
+#  spacex = SpaceXLaunches()
+#  launches = spacex.categorize_launches(spacex.spacex_launches_web())
+#  return launches
 
 
 @app.template_filter("date_only")
