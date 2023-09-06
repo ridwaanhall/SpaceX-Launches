@@ -9,7 +9,7 @@ app = Flask(__name__)
 def index():
   spacex = SpaceXLaunches()
   launches = spacex.categorize_launches(spacex.fetch_spacex_launches())
-  return launches
+  return render_template("spacex.html", launches=launches)
 
 
 @app.template_filter("date_only")
