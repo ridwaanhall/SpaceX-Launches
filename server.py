@@ -37,6 +37,27 @@ def api_all_v4():
   return launches
 
 
+@app.route("/v4/successful")
+def api_successful_v4():
+  spacex = SpaceXLaunches()
+  launches = spacex.successful(spacex.spacex_launches_v4())
+  return launches
+
+
+@app.route("/v4/failed")
+def api_failed_v4():
+  spacex = SpaceXLaunches()
+  launches = spacex.failed(spacex.spacex_launches_v4())
+  return launches
+
+
+@app.route("/v4/upcoming")
+def api_upcoming_v4():
+  spacex = SpaceXLaunches()
+  launches = spacex.upcoming(spacex.spacex_launches_v4())
+  return launches
+
+
 # date filter
 @app.template_filter("date_only")
 def date_only_filter(s):

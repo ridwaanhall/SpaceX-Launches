@@ -19,12 +19,16 @@ class SpaceXLaunches:
     self.url_v4 = "https://api.spacexdata.com/v4/launches"
     self.url_v5 = "https://api.spacexdata.com/v5/launches"
 
+
+  # ================== WEBSITE ===================
   def spacex_launches_web(self):
     reader = ReadUrl()
     response = requests.get(self.url_web)
     launches = reader.read_json(response)
     return launches
 
+
+  # ================== VERSION ==================
   # v2
   def spacex_launches_v2(self):
     reader = ReadUrl()
