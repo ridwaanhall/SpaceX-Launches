@@ -21,7 +21,7 @@ class SpaceXLaunches:
 
 
   # ================== WEBSITE ===================
-  def spacex_launches_web(self):
+  def spacex_web(self):
     reader = ReadUrl()
     response = requests.get(self.url_web)
     launches = reader.read_json(response)
@@ -30,28 +30,28 @@ class SpaceXLaunches:
 
   # ================== VERSION ==================
   # v2
-  def spacex_launches_v2(self):
+  def spacex_v2(self):
     reader = ReadUrl()
     response = requests.get(self.url_v2)
     launches = reader.read_json(response)
     return launches
 
   # v3
-  def spacex_launches_v3(self):
+  def spacex_v3(self):
     reader = ReadUrl()
     response = requests.get(self.url_v3)
     launches = reader.read_json(response)
     return launches
 
   # v4
-  def spacex_launches_v4(self):
+  def spacex_v4(self):
     reader = ReadUrl()
     response = requests.get(self.url_v4)
     launches = reader.read_json(response)
     return launches
 
   # v5
-  def spacex_launches_v5(self):
+  def spacex_v5(self):
     reader = ReadUrl()
     response = requests.get(self.url_v5)
     launches = reader.read_json(response)

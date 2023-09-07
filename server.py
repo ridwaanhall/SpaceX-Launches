@@ -17,7 +17,7 @@ def index():
 @app.route("/v2")
 def api_all_v2():
   spacex = SpaceXLaunches()
-  launches = spacex.spacex_launches_v2()
+  launches = spacex.spacex_v2()
   return launches
 
 
@@ -25,7 +25,7 @@ def api_all_v2():
 @app.route("/v3")
 def api_all_v3():
   spacex = SpaceXLaunches()
-  launches = spacex.spacex_launches_v3()
+  launches = spacex.spacex_v3()
   return launches
 
 
@@ -33,28 +33,57 @@ def api_all_v3():
 @app.route("/v4")
 def api_all_v4():
   spacex = SpaceXLaunches()
-  launches = spacex.spacex_launches_v4()
+  launches = spacex.spacex_v4()
   return launches
 
 
-@app.route("/v4/successful")
+@app.route("/v4/launches/successful")
 def api_successful_v4():
   spacex = SpaceXLaunches()
-  launches = spacex.successful(spacex.spacex_launches_v4())
+  launches = spacex.successful(spacex.spacex_v4())
   return launches
 
 
-@app.route("/v4/failed")
+@app.route("/v4/launches/failed")
 def api_failed_v4():
   spacex = SpaceXLaunches()
-  launches = spacex.failed(spacex.spacex_launches_v4())
+  launches = spacex.failed(spacex.spacex_v4())
   return launches
 
 
-@app.route("/v4/upcoming")
+@app.route("/v4/launches/upcoming")
 def api_upcoming_v4():
   spacex = SpaceXLaunches()
-  launches = spacex.upcoming(spacex.spacex_launches_v4())
+  launches = spacex.upcoming(spacex.spacex_v4())
+  return launches
+
+
+# v5
+@app.route("/v5")
+def api_all_v5():
+  spacex = SpaceXLaunches()
+  launches = spacex.spacex_v5()
+  return launches
+
+
+@app.route("/v5/launches/successful")
+def api_successful_v5():
+  spacex = SpaceXLaunches()
+  launches = spacex.successful(spacex.spacex_v5())
+  return launches
+
+
+@app.route("/v5/launches/failed")
+def api_failed_v5():
+  spacex = SpaceXLaunches()
+  launches = spacex.failed(spacex.spacex_v5())
+  return launches
+
+
+@app.route("/v5/launches/upcoming")
+def api_upcoming_v5():
+  spacex = SpaceXLaunches()
+  launches = spacex.upcoming(spacex.spacex_v5())
   return launches
 
 
