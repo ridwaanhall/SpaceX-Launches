@@ -63,27 +63,34 @@ class SpaceXLaunches:
     successful = list(
       filter(lambda x: x["success"] and not x["upcoming"], launches))
 
-    return {"successful": successful}
+    return {
+      "successful": successful
+    }
 
   # failed
   def failed(self, launches):
-    failed = list(
-      filter(lambda x: not x["success"] and not x["upcoming"], launches))
+    failed = list(filter(lambda x: not x["success"] and not x["upcoming"], launches))
 
-    return {"failed": failed}
+    return {
+      "failed": failed
+    }
 
   # upcoming
   def upcoming(self, launches):
     upcoming = list(filter(lambda x: x["upcoming"], launches))
 
-    return {"upcoming": upcoming}
+    return {
+      "upcoming": upcoming
+    }
 
   # successful, failed, upcoming
   def categorize_launches(self, launches):
-    successful = list(
-      filter(lambda x: x["success"] and not x["upcoming"], launches))
-    failed = list(
-      filter(lambda x: not x["success"] and not x["upcoming"], launches))
+    successful = list(filter(lambda x: x["success"] and not x["upcoming"], launches))
+    failed = list(filter(lambda x: not x["success"] and not x["upcoming"], launches))
     upcoming = list(filter(lambda x: x["upcoming"], launches))
 
-    return {"successful": successful, "failed": failed, "upcoming": upcoming}
+    return {
+      "successful": successful, 
+      "failed": failed, 
+      "upcoming": upcoming
+    }
