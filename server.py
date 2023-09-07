@@ -29,6 +29,14 @@ def api_all_v3():
   return launches
 
 
+# v4
+@app.route("/v4")
+def api_all_v4():
+  spacex = SpaceXLaunches()
+  launches = spacex.spacex_launches_v4()
+  return launches
+
+
 # date filter
 @app.template_filter("date_only")
 def date_only_filter(s):
