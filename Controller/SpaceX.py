@@ -21,7 +21,7 @@ class SpaceXLaunches:
 
 
   # ================== WEBSITE ===================
-  def spacex_web(self):
+  def spacex_launches_web(self):
     reader = ReadUrl()
     response = requests.get(self.url_web)
     launches = reader.read_json(response)
