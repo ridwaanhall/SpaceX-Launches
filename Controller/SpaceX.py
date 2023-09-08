@@ -12,16 +12,18 @@ class ReadUrl:
 
 class SpaceXLaunches:
 
+  BASE_URL = "https://api.spacexdata.com"
+  
   def __init__(self):
-    self.url_web = "https://api.spacexdata.com/v4/launches"
-    self.url_v2 = "https://api.spacexdata.com/v2/launches"
-    self.url_v3 = "https://api.spacexdata.com/v3/launches"
-    self.url_v4 = "https://api.spacexdata.com/v4/launches"
-    self.url_v5 = "https://api.spacexdata.com/v5/launches"
+    self.url_web = f"{self.BASE_URL}/v4/launches"
+    self.url_v2 = f"{self.BASE_URL}/v2/launches"
+    self.url_v3 = f"{self.BASE_URL}/v3/launches"
+    self.url_v4 = f"{self.BASE_URL}/v4/launches"
+    self.url_v5 = f"{self.BASE_URL}/v5/launches"
 
 
   # ================== WEBSITE ===================
-  def spacex_launches_web(self):
+  def web_categorize(self):
     reader = ReadUrl()
     response = requests.get(self.url_web)
     launches = reader.read_json(response)

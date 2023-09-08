@@ -9,13 +9,14 @@ app = Flask(__name__)
 @app.route("/")
 def index():
   spacex = SpaceXLaunches()
-  launches = spacex.categorize_launches(spacex.spacex_launches_web())
+  launches = spacex.categorize_launches(spacex.web_categorize())
   return render_template("spacex.html", launches=launches)
 
 
+# ================ ALL LAUNCHES DATA ===================
 # v2
 @app.route("/v2")
-def api_all_v2():
+def api_categorize_v2():
   spacex = SpaceXLaunches()
   launches = spacex.spacex_v2()
   return launches
@@ -23,7 +24,7 @@ def api_all_v2():
 
 # v3
 @app.route("/v3")
-def api_all_v3():
+def api_categorize_v3():
   spacex = SpaceXLaunches()
   launches = spacex.spacex_v3()
   return launches
@@ -31,12 +32,54 @@ def api_all_v3():
 
 # v4
 @app.route("/v4")
-def api_all_v4():
+def api_categorize_v4():
   spacex = SpaceXLaunches()
   launches = spacex.spacex_v4()
   return launches
 
 
+# v5
+@app.route("/v5")
+def api_categorize_v5():
+  spacex = SpaceXLaunches()
+  launches = spacex.spacex_v5()
+  return launches
+
+
+# ================ LAUNCHES CATEGORIZE ================
+# v2
+@app.route("/v2/launches")
+def api_all_v2():
+  spacex = SpaceXLaunches()
+  launches = spacex.categorize_launches(spacex.spacex_v2())
+  return launches
+
+
+# v3
+@app.route("/v3/launches")
+def api_all_v3():
+  spacex = SpaceXLaunches()
+  launches = spacex.categorize_launches(spacex.spacex_v3())
+  return launches
+
+
+# v4
+@app.route("/v4/launches")
+def api_all_v4():
+  spacex = SpaceXLaunches()
+  launches = spacex.categorize_launches(spacex.spacex_v4())
+  return launches
+
+
+# v5
+@app.route("/v5/launches")
+def api_all_v5():
+  spacex = SpaceXLaunches()
+  launches = spacex.categorize_launches(spacex.spacex_v5())
+  return launches
+
+
+# ================ LAUNCHES DETAIL CATGORIZE ===============
 @app.route("/v4/launches/successful")
 def api_successful_v4():
   spacex = SpaceXLaunches()
@@ -55,14 +98,6 @@ def api_failed_v4():
 def api_upcoming_v4():
   spacex = SpaceXLaunches()
   launches = spacex.upcoming(spacex.spacex_v4())
-  return launches
-
-
-# v5
-@app.route("/v5")
-def api_all_v5():
-  spacex = SpaceXLaunches()
-  launches = spacex.spacex_v5()
   return launches
 
 
